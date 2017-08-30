@@ -1,0 +1,38 @@
+<h1>Thangs to Do</h1>
+
+<p><a href="/form">Add New Thangs</a></p>
+
+<h2>These Thangs</h2>
+<ul>
+    {{ #todos }}
+    <li>
+        <p>{{ title }}</p>
+
+        {{#dunzo}}
+        <form method="post" action="/dunzo/{{ id }}">
+            <input type="submit" value="Undunzo">
+        </form>
+        <form method="post" action="/delete/{{ id }}">
+            <input type="submit" value="Delete">
+        </form>
+        <form method="post" action="/edit/{{ id }}">
+             <input type="text" name="Sally">
+            <input type="submit" value="Edit">
+        </form>
+        {{/dunzo}}
+        
+        {{^dunzo}}
+        <form method="post" action="/undunzo/{{ id }}">
+            <input type="submit" value="Dunzo">
+        </form>
+       <form method="post" action="/delete/{{ id }}">
+            <input type="submit" value="Delete">
+        </form>
+       <form method="post" action="/edit/{{ id }}">
+             <input type="text" name="Sally">
+            <input type="submit" value="Edit">
+        </form>
+       {{/dunzo}}
+    </li>
+    {{ /todos }}
+</ul>
